@@ -7,7 +7,7 @@ const SALT = 12;
 const JWT_SECRET = "aslkdfjaklsjdflk";
 
 export const authResolvers: ResolverMap = {
-  signup: async (parent, args, ctx) => {
+  signup: async (parent, args: GQL.ISignupOnMutationArguments, ctx) => {
     const password = await bcrypt.hash(args.password, SALT);
     const user = User.create({
       ...args,

@@ -2,7 +2,6 @@ import "reflect-metadata";
 import { GraphQLServer } from "graphql-yoga";
 import { createConnection, getConnection, getRepository } from "typeorm";
 import resolvers from "./resolvers";
-import { User } from "./entity/User";
 import constants from "./constants";
 import * as jwt from "jsonwebtoken";
 import * as session from "express-session";

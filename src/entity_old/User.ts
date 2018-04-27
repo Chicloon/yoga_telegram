@@ -1,5 +1,3 @@
-import { v4 as uuid } from 'uuid';
-
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -7,17 +5,16 @@ import {
   BaseEntity,
   ManyToMany,
   JoinTable,
-  OneToMany,
-  PrimaryColumn,
-  BeforeInsert
+  OneToMany
 } from "typeorm";
-
+import { Channel } from "./Channel";
+import { Message } from "./Message";
 
 @Entity()
 export class User extends BaseEntity {
-  @PrimaryColumn("uuid") id: string;
+  @PrimaryGeneratedColumn() id: number;
 
-  @Column("varchar", { length: 255 })
+  @Column({ type: "text" })
   email: string;
 
   @Column({ type: "boolean", default: false })
@@ -29,8 +26,10 @@ export class User extends BaseEntity {
   @Column({ type: "varchar", length: "230" })
   password: string;
 
-  @BeforeInsert()
-  addId() {
-    this.id = uuid();
-  }
+  @ManyToMany(() => Channel)
+  @JoinTable({ name: "channel_member" })
+  channels: Channel[];
+
+  @OneToMany(() => Message, message => message.user)
+  messages: Message[];
 }

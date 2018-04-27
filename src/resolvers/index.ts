@@ -10,22 +10,22 @@ import { messageQueries } from "./Queries/message";
 import { messageType } from "./Types/message";
 
 export default {
-  Message: {
-    ...messageType
-  },
-  User: {
-    ...userType
-  },
-  Query: {
-    ...userQueries,
-    ...channelQueries,
-    ...messageQueries,
-    ...Query
-  },
-  Mutation: {
-    ...user,
-    ...messageResovlers,
-    ...channelResolvers,
-    ...authResolvers
-  }
+  // Message: {
+  //   ...messageType
+  // },
+  // User: {
+  //   ...userType
+  // },
+  // Query: {
+  //   ...userQueries,
+  //   ...channelQueries,
+  //   ...messageQueries,
+  //   ...Query
+  // },
+  // Mutation: {
+  //   ...user,
+  //   ...messageResovlers,
+  //   ...channelResolvers,
+  //   ...authResolvers
+  // }
 };
